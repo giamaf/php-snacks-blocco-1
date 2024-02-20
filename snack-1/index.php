@@ -5,25 +5,20 @@ $main_title = 'NBA Matches';
 
 // Creo array dei matches
 $matches = [
- 'match-1' =>  [
-                 'teams' => [
-                                'Los Angeles Lakers',
-                                'Chicago Bulls'
-                            ] ,
-
-                 'points' => rand(70, 110)
-                   
-               ],
+   [
+    'home_team' => 'Los Angeles Lakers',
+    'away_team' => 'Chicago Bulls',
+    'ht_points' => rand(70, 100),
+    'at_points' => rand(70, 100)
+   ],
  
- 'match-2' =>  [
-                 'teams' => [
-                                'Cleveland Cavaliers',
-                                'San Antonio Spurs'
-                            ] ,
-
-                 'points' => rand(70, 110)
-                   
-               ],
+   [
+    'home_team' => 'Cleveland Cavaliers',
+    'away_team' => 'San Antonio Spurs',
+    'ht_points' => rand(70, 100),
+    'at_points' => rand(70, 100)
+   ],
+ 
 ]
 
 ?>
@@ -44,18 +39,17 @@ $matches = [
 </head>
 <body>
     <h1><?= $main_title ?></h1>
-    <ul class="d-flex">
+    <ul>
         <?php foreach ($matches as $match): ?>
 
-            <li class="mx-1"><?=  $match['teams'][0] . ' - ' ?></li>
+           <li>
+            <?= $match['home_team'] ?> - <?= $match['away_team'] ?> | <?= "{$match['ht_points']} - {$match['at_points']}" ?>
+           </li>
         
         <?php endforeach; ?>
 
         
-        <?php foreach ($matches as $match): ?>
-            <li> <?=  $match['points'] . ' - ' ?></li>
-            
-        <?php endforeach; ?>
+        
     </ul>
 </body>
 
