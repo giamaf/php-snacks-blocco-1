@@ -8,13 +8,13 @@ $info = '';
 $text_color = 'text-danger';
 
 
-$first_name = trim($_GET['firstname']);
-$email = trim($_GET['email']);
-$age = $_GET['age'];
+$first_name = trim($_GET['firstname']) ?? '';
+$email = trim($_GET['email']) ?? '';
+$age = $_GET['age'] ?? '';
 
-if(strlen($first_name) > 3){
-$info = "Il numero minimo di caratteri è 4!";
-}else if(!strpos($email, '@') || !strpos($email, '.')){
+if(mb_strlen($first_name) < 3){
+$info = "Il numero minimo di caratteri è 3!";
+}else if(!str_contains($email, '@') || !str_contains($email, '.')){
 $info = 'I simboli "@" "." sono obbligatori nel campo mail!';    
 }else if(!$age || !is_numeric($age)){
 $info = 'Inserire un\'età valida!';
